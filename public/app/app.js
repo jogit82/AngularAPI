@@ -6,8 +6,9 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     templateUrl: 'app/views/index.html',
     controller: 'HomeCtrl'
   })
-  .when('/about', {
-    templateUrl: 'app/views/about.html'
+  .when('/comment', {
+    templateUrl: 'app/views/comment.html',
+    controller: 'CommentCtrl'
   })
   .otherwise({
     templateUrl: 'app/views/404.html'
