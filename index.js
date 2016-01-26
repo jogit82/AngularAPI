@@ -23,6 +23,9 @@ app.use('/api/stuff', require('./controllers/stuff'));
 // app.get('/', function(req, res) {
 //     res.send('Username: ' + req.query['username']);
 // });
+// app.get('/', function(req, res) {
+//     res.send('Username: ' + req.query['username']);
+// });
 
 // app.post('/', function(req, res) {
 //     res.send('Username: ' + req.body.username);
