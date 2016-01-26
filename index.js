@@ -17,6 +17,13 @@ app.use('/api/stuff', require('./controllers/stuff'));
 // app.get('/*', function(req, res) {
 //   res.sendFile(path.join(__dirname, 'public/index.html'));
 // });
+app.get('/', function(req, res) {
+    res.send('Username: ' + req.query['username']);
+});
+
+app.post('/', function(req, res) {
+    res.send('Username: ' + req.body.username);
+};
 
 app.listen(3000, function(){
 	console.log('Port 3000 running');
