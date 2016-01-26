@@ -1,4 +1,4 @@
-var app = angular.module('AngularApp', ['ngRoute', 'StuffCtrls']);
+var app = angular.module('AngularApp', ['ngRoute', 'AppCtrls']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $routeProvider

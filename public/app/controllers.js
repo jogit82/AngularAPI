@@ -1,6 +1,6 @@
-var stuffCtrls = angular.module('StuffCtrls', ['StuffServices']);
+var appCtrls = angular.module('AppCtrls', ['StuffServices']);
 
-stuffCtrls.controller('HomeCtrl', ['$scope', 'Stuff', function($scope, Stuff){
+appCtrls.controller('HomeCtrl', ['$scope', 'Stuff', function($scope, Stuff){
 	$scope.stuff = [];
 	//query is built on to the resource dependency to query apis
 	Stuff.query(
