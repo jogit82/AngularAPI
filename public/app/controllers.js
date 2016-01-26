@@ -1,4 +1,4 @@
-var appCtrls = angular.module('AppCtrls', ['StuffServices']);
+var appCtrls = angular.module('AppCtrls', ['AppServices']);
 
 appCtrls.controller('HomeCtrl', ['$scope', 'Stuff', function($scope, Stuff){
 	$scope.stuff = [];
