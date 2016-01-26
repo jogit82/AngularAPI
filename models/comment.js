@@ -5,6 +5,13 @@ var CommentSchema = mongoose.Schema({
   trailId: String
 });
 
+var TrailSchema = mongoose.Schema({
+  name: String,
+  trailId: String,
+  comment: [CommentSchema]
+});
+
+
 
 var Comment = mongoose.model('Comment', CommentSchema);
 // make this available to our other files
