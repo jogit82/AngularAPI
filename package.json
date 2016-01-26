@@ -1,0 +1,24 @@
+{
+  "name": "angularapi",
+  "version": "1.0.0",
+  "description": "Welcome to my Angular Project!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jogit82/AngularAPI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jogit82/AngularAPI/issues"
+  },
+  "homepage": "https://github.com/jogit82/AngularAPI#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "mongoose": "^4.3.7"
+  }
+}
