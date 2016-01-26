@@ -1,0 +1,25 @@
+<h2> This is an extended view of the hike you clicked on. controlled by hikeView.js controller </h2>
+
+
+<h1> extended hike info goes here </h1>
+
+<div class="well well-sm" ng-repeat="comment in comments">
+	<!-- this will pull in all comments by trailId -->
+	{{comment.content}}
+</div>
+
+
+<h3>Tell us about this hike!</h3>
+
+<form ng-submit="createComment()">
+  <div class="form-group">
+    <!-- <label for="content">Title</label> -->
+    <input type="text" class="form-control" id="content" ng-model="comment.content">
+  </div>
+  <div class="hidden">
+    <input type="text" class="hidden" id="trailId" ng-model="comment.trailId">
+    <!-- this input will grab the trailId from the url params/built-in trailId from API -->
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

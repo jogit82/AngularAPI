@@ -6,4 +6,7 @@ var FavoriteSchema = mongoose.Schema({
   trailId: Number
 });
 
-module.exports = mongoose.model('Favorite', FavoriteSchema);
+
+var Favorite = mongoose.model('Favorite', FavoriteSchema);
+// make this available to our other files
+module.exports = Favorite;

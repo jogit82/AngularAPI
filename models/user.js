@@ -5,7 +5,7 @@ var UserSchema = mongoose.Schema({
   name: String,
   email: String,
   password: String,
-  favorite: [Favorite]
+  favorite: [FavoriteSchema]
 });
 
 UserSchema.set('toJSON', {
@@ -19,15 +19,15 @@ UserSchema.set('toJSON', {
   }
 });
 
-UserSchema.methods.authenticated = function(password, callback) {
-  bcrypt.compare(password, this.password, function(err, res) {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, res ? this : false);
-    }
-  });
-}
+// UserSchema.methods.authenticated = function(password, callback) {
+//   bcrypt.compare(password, this.password, function(err, res) {
+//     if (err) {
+//       callback(err);
+//     } else {
+//       callback(null, res ? this : false);
+//     }
+//   });
+// }
 
 UserSchema.pre('save', function(next) {
   if (!this.isModified('password')) {
@@ -38,7 +38,7 @@ UserSchema.pre('save', function(next) {
   }
 });
 
-var User = mongoose.model('User', userSchema);
+var User = mongoose.model('User', UserSchema);
 // make this available to our other files
 module.exports = User;
 // module.exports = mongoose.model('Favorite', FavoriteSchema);   do i need this one? or add favoriteSchema onto this page? 
