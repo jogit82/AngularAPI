@@ -1,13 +1,23 @@
-var appCtrls = angular.module('AppCtrls', ['AppServices']);
+var appCtrls = angular.module('AppCtrls', []);
 
-appCtrls.controller('HomeCtrl', ['$scope', 'Stuff', function($scope, Stuff){
-	$scope.stuff = [];
-	//query is built on to the resource dependency to query apis
-	Stuff.query(
-		function success(data){
-			$scope.stuff = data;
-		}, function error(data) {
-			console.log(data);
-		}
-	);
-}])
+appCtrls.controller('HikesCtrl', ['$scope', '$http', function($scope, $http){
+	//console.log(results);
+
+	$scope.hikes = [];
+
+	var uri = 'https://api.transitandtrails.org/api/v1/trips.json';
+
+	 var req = {
+	    url: uri,
+	    method: 'GET',
+	    params: {
+	      key: 'a757f393826253f1dc087832b0083fda38ef2c8149f2cd7913d877d8f74a3f11'
+	    }
+	 }
+
+	$http(req).then(function success(res) {
+		$scope.hikes = res.data;
+	}, function error(res) {
+		console.log(res);
+	});
+}]);

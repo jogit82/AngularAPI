@@ -3,6 +3,13 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var app = express();
 
+var http = require('http');
+var https = require('https');
+var fs = require('fs');
+var privateKey  = fs.readFileSync('key.pem', 'utf8');
+var certificate = fs.readFileSync('cert.pem', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+
 var mongoose = require('mongoose');
 var Stuff = require('./models/stuff');
 mongoose.connect('mongodb://localhost/stuff');
@@ -13,18 +20,24 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/api/stuff', require('./controllers/stuff'));
 
-// Below codes unnecessary as catch-all is handled by 'otherwise' in ngRoute (app.js)
-// app.get('/*', function(req, res) {
-//   res.sendFile(path.join(__dirname, 'public/index.html'));
+//Below codes unnecessary as catch-all is handled by 'otherwise' in ngRoute (app.js)
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
+
+
+
+// app.get('/', function(req, res) {
+//     res.send('Username: ' + req.query['username']);
 // });
-app.get('/', function(req, res) {
-    res.send('Username: ' + req.query['username']);
-});
 
-app.post('/', function(req, res) {
-    res.send('Username: ' + req.body.username);
-};
+// app.post('/', function(req, res) {
+//     res.send('Username: ' + req.body.username);
+// });
 
-app.listen(3000, function(){
-	console.log('Port 3000 running');
-});
+var httpServer = http.createServer(app);
+var httpsServer = https.createServer(credentials, app);
+
+httpServer.listen(process.env.PORT || 3000);
+httpsServer.listen(process.env.SSLPORT || 4000);

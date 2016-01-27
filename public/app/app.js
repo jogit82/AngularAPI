@@ -9,19 +9,13 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   .when('/about', {
     templateUrl: 'app/views/about.html'
   })
+  .when('/hikes', {
+    templateUrl: 'app/views/hikes.html',
+    controller: 'HikesCtrl'
+  })
   .otherwise({
     templateUrl: 'app/views/404.html'
   });
 
   $locationProvider.html5Mode(true);
 }]);
-
-
-
-
-
-
-
-// app.controller('MainCtrl', ['$scope', function($scope){
-// 	$scope.test = 'hello';
-// }]);
