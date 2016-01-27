@@ -10,6 +10,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     templateUrl: 'app/views/comment.html',
     controller: 'CommentCtrl'
   })
+  .when('/hikes', {
+    templateUrl: 'app/views/hikes.html',
+    controller: 'HikesCtrl'
+  })
   .otherwise({
     templateUrl: 'app/views/404.html'
   });
