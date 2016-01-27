@@ -26,7 +26,7 @@ app.use('/api/stuff', require('./controllers/stuff'));
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
-
+	
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
 
