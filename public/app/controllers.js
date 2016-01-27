@@ -4,8 +4,27 @@ appCtrls.controller('HikesCtrl', ['$scope', '$http', function($scope, $http){
 	//console.log(results);
 
 	$scope.hikes = [];
+	$scope.hikesTrimmed = [];
+	$scope.searchTerm = '';
+	$scope.results = [];
 
-	var uri = 'https://api.transitandtrails.org/api/v1/trips.json';
+	var searchHikes = function(){
+		if($scope.hikes.indexOf($scope.searchTerm) !=-1 && $scope.searchTerm != ''){
+			$scope.hikes.forEach(function(hike){
+				$scope.results.push(hike);
+			})
+		};
+	}
+
+	$scope.$watch(function(){
+		return $scope.searchTerm;
+	}, function(oldVal,newVal){
+		console.log($scope.searchTerm);
+	})
+
+		
+
+	var uri = 'https://api.transitandtrails.org/api/v1/trips';
 
 	 var req = {
 	    url: uri,
@@ -16,8 +35,17 @@ appCtrls.controller('HikesCtrl', ['$scope', '$http', function($scope, $http){
 	 }
 
 	$http(req).then(function success(res) {
-		$scope.hikes = res.data;
+		res.data.forEach(function(hike){
+			var endIndex = hike.description.indexOf('<');
+
+			var newName = hike.description.substring(0, endIndex - 1);
+			$scope.hikesTrimmed.push(hike);
+		});
 	}, function error(res) {
 		console.log(res);
 	});
+}]);
+
+appCtrls.controller('CommentCtrl', ['$scope', '$http', function($scope, $http){
+	
 }]);

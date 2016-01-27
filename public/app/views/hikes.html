@@ -1,7 +1,17 @@
 <div class="container">
-	<h1>Hikes</h1>
-
-	<div class="well" ng-repeat="hike in hikes">
-		<h1>{{hike.name}}</h1>
+	<div class="container" id="searchDiv"><form class="form">
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="searchTerm"  placeholder="Where do you want to go?">
+          <input class="btn btn-primary" value="Search">
+        </div>
+	</form>
+	</div>
+	<h1><span style="font-size: 50px">Hikes</span></h1>
+<div class="container">
+	<div class="well-hikes" ng-repeat="hike in hikesTrimmed | filter:searchTerm" ng-model="hike.name">
+		<h1>{{hike.name}} <small>{{hike.intensity}}</small></h1>
+		<div ng-bind-html="hike.description"></div>
+		<h5>Comments: <small>Today a young man on acid realized that all matter is merely energy condensed to a slow vibration and that we are all one consciousness experiencing itself subjectively, there is no such thing as death, life is only a dream, and we are the imagination of ourselves. Here's Tom with the Weather.</small></h5>
+		<a href="/comment"><button type="button" class="btn btn-primary btn-xs">Add a comment</button></a>
 	</div>
 </div>

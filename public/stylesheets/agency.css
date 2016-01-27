@@ -157,7 +157,11 @@ fieldset[disabled] .btn-xl.active {
   background-color: #fed136;
   border-color: #fed136
 }
-
+.well-hikes {
+  border: solid black 1px,
+  height: 200px
+  width: 100px
+}
 .btn-xl .badge {
   color: #fed136;
   background-color: #fff
@@ -165,7 +169,7 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-default {
   background-color: #222;
-  border-color: transparent
+  border-color: black;
 }
 
 .navbar-default .navbar-brand {
@@ -226,7 +230,7 @@ fieldset[disabled] .btn-xl.active {
 
 @media (min-width:768px) {
   .navbar-default {
-    background-color: transparent;
+    background-color: black;
     padding: 25px 0;
     -webkit-transition: padding .3s;
     -moz-transition: padding .3s;
