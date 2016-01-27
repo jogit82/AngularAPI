@@ -1,0 +1,1 @@
+////hikeView controller will show extended view of hike page... hikeView.html
