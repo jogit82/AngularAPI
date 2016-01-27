@@ -11,8 +11,6 @@
 	<div class="well-hikes" ng-repeat="hike in hikesTrimmed | filter:searchTerm | limitTo:10" ng-model="hike.name">
 		<h1>{{hike.name}} <small>{{hike.duration}} | {{hike.length_miles | number:1}}miles | {{hike.intensity}} </small></h1>
 		<div ng-bind-html="hike.description"></div>
-		<h5>Comments: <small>Today a young man on acid realized that all matter is merely energy condensed to a slow vibration and that we are all one consciousness experiencing itself subjectively, there is no such thing as death, life is only a dream, and we are the imagination of ourselves. Here's Tom with the Weather.</small></h5>
-		<a href="/comment"><button type="button" class="btn btn-primary btn-xs">Add a comment</button></a>
 		<hr>
 	</div>
 </div>
