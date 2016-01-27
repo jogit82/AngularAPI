@@ -251,6 +251,13 @@ fieldset[disabled] .btn-xl.active {
   }
 }
 
+.the404 {
+  background-image: url(/images/goat404.png);
+  background-repeat: none;
+  height: 750px;
+  width: 100%;
+}
+
 header {
  /* width: 100vw;
   height: 100vh;*/
