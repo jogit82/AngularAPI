@@ -15,7 +15,7 @@ var Stuff = require('./models/stuff');
 // var User = require('./models/user');
 var Trail = require('./models/trail');
 var Comment = require('./models/comment');
-mongoose.connect('mongodb://localhost/stuff');
+mongoose.connect(process.env.MONGOLAB_URI);
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
@@ -30,5 +30,5 @@ app.get('/*', function(req, res) {
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
 
-httpServer.listen(process.env.PORT || 3000);
-httpsServer.listen(process.env.SSLPORT || 4000);
+httpServer.listen(process.env.PORT);
+httpsServer.listen(process.env.SSLPORT);
