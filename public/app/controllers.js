@@ -4,6 +4,7 @@ appCtrls.controller('HikesCtrl', ['$scope', '$http', function($scope, $http){
 	//console.log(results);
 
 	$scope.hikes = [];
+	$scope.hikesTrimmed = [];
 	$scope.searchTerm = '';
 	$scope.results = [];
 
@@ -34,8 +35,12 @@ appCtrls.controller('HikesCtrl', ['$scope', '$http', function($scope, $http){
 	 }
 
 	$http(req).then(function success(res) {
-		$scope.hikes = res.data;
-		// console.log(res.data);
+		res.data.forEach(function(hike){
+			var endIndex = hike.description.indexOf('<');
+
+			var newName = hike.description.substring(0, endIndex - 1);
+			$scope.hikesTrimmed.push(hike);
+		});
 	}, function error(res) {
 		console.log(res);
 	});

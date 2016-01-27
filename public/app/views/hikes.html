@@ -1,17 +1,17 @@
 <div class="container">
 	<form class="form">
         <div class="form-group">
-          <label>Enter a hike:</label>
-          <input type="text" class="form-control" ng-model="searchTerm">
+          <input type="text" class="form-control" ng-model="searchTerm"  placeholder="Enter a hike">
           <input class="btn btn-primary" value="Search">
         </div>
 	</form>
 	<h1><span style="font-size: 50px">Hikes</span></h1>
-<div class="container">
-	<div class="well-hikes" ng-repeat="hike in hikes | filter:searchTerm" ng-model="result.name">
-		<h1>{{hike.name}}</h1>
-		<h4>{{hike.description}}</h4>
-		<h4>{{hike.intensity}}</h4>
+	<div class="container">
+		<div class="well-hikes" ng-repeat="hike in hikesTrimmed | filter:searchTerm" ng-model="hike.name">
+			<h1>{{hike.name}}</h1>
+			<h4>{{hike.intensity}}</h4>
+			<div ng-bind-html="hike.description"></div>
+			<hr>
+		</div>
 	</div>
-</div>
 </div>
